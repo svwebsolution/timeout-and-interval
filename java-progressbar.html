@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Hello!</title>
+  <style>
+
+    .progress_bars{
+      width: 800px;
+      height:40px;
+      border:1px solid black;
+      margin-bottom:15px;
+    }
+    .progress_bar_two{
+      border:1px solid green;
+    }
+    .progress_bar_three{
+      border:1px solid red;
+    }
+    .progress_bars div{
+      width: 5px;
+      height:40px;
+      transition:1.2s all;
+    }
+
+    #progressbar_1{
+      background-color: black;
+    }
+    #progressbar_2{
+      background-color: green;
+    }
+    #progressbar_3{
+      background-color: red;
+    }
+
+  </style>
+</head>
+
+<body onload="progressbar()">
+
+<div class="progress_bars">
+    <div id="progressbar_1"></div>
+</div>
+<div class="progress_bars progress_bar_two">
+    <div id="progressbar_2"></div>
+</div>
+<div class="progress_bars progress_bar_three">
+    <div id="progressbar_3"></div>
+</div>
+<button onclick="stop()">Stop</button>
+
+
+    <p id="MyText" onlick="my()"></p>
+
+    <script>
+    var myTimeout_3;
+    var myTimeout_2;
+    function progressbar(){
+    var myTimeout_1 = setTimeout(progress_1, 1000);
+        function progress_1(){
+          document.getElementById('progressbar_1').style.width="80%";
+        }
+    myTimeout_2 = setTimeout(progress_2, 2000);
+        function progress_2(){
+          document.getElementById('progressbar_2').style.width="90%";
+        }
+    myTimeout_3 = setTimeout(progress_3, 3000);
+        function progress_3(){
+          document.getElementById('progressbar_3').style.width="50%";
+        }
+    }
+    function stop(){
+      clearTimeout(myTimeout_3);
+      clearTimeout(myTimeout_2);
+    }
+
+    var element = document.getElementById('MyText');
+    setInterval(function() {element.innerHTML +="My Name is Sandeep "},1000);
+    </script>
+
+
+</body>
+</html>
